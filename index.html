@@ -49,9 +49,16 @@
         <span class="logo__text">Haar Experten</span>
       </a>
 
+      <!-- Live-Anzeige „Jetzt geöffnet“ (wird automatisch aus den Öffnungszeiten berechnet) -->
+      <a class="status" href="#kontakt" data-status hidden>
+        <span class="status__dot" aria-hidden="true"></span>
+        <span class="status__text" data-status-text></span>
+      </a>
+
       <nav class="nav" id="nav" aria-label="Hauptmenü">
         <a href="#salon">Salon</a>
         <a href="#leistungen">Leistungen</a>
+        <a href="#finder">Frisuren-Finder</a>
         <a href="#galerie">Galerie</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -77,6 +84,34 @@
           <img src="img/salon-innen-1206.webp" alt="Blick in den Salon: Ledersofa im Wartebereich, Friseurstühle vor einer königsblauen Wand und runde Ring-Leuchten an der Decke" width="1206" height="903" fetchpriority="high">
         </picture>
       </div>
+
+      <!-- RUNDGANG: leuchtende Punkte im Foto.
+           data-x / data-y = Position im Foto in Prozent (von links / von oben). -->
+      <div class="spots" data-spots>
+        <button class="spot" type="button" data-x="43" data-y="16" data-title="Unsere Ring-Leuchten" data-text="Helles, gleichmäßiges Licht – so sehen Sie genau, wie Schnitt und Farbe wirklich aussehen.">
+          <span class="sr-only">Ring-Leuchten</span>
+        </button>
+        <button class="spot" type="button" data-x="53" data-y="29" data-title="Zeit für Sie" data-text="Bei uns gibt es keine Fließband-Termine – wir nehmen uns die Zeit, die Ihr Haar braucht.">
+          <span class="sr-only">Uhr an der Wand</span>
+        </button>
+        <button class="spot" type="button" data-x="87" data-y="33" data-title="Barber-Plätze" data-text="Große Spiegel und Zeit für Ihren Schnitt, Ihre Konturen und Ihren Bart.">
+          <span class="sr-only">Barber-Plätze</span>
+        </button>
+        <button class="spot" type="button" data-x="76" data-y="78" data-title="Zurücklehnen" data-text="Bequeme Barber-Stühle – für die Nassrasur genauso wie für den schnellen Schnitt.">
+          <span class="sr-only">Barber-Stühle</span>
+        </button>
+        <button class="spot" type="button" data-x="36" data-y="62" data-title="Ankommen &amp; entspannen" data-text="Auf dem Ledersofa warten Sie ganz entspannt – gern mit einem Kaffee.">
+          <span class="sr-only">Wartebereich mit Sofa</span>
+        </button>
+        <button class="spot" type="button" data-x="5" data-y="52" data-title="Kaffee?" data-text="Gern! Während Sie warten, machen wir Ihnen einen Kaffee.">
+          <span class="sr-only">Kaffeemaschine</span>
+        </button>
+        <div class="spot-card" role="status" aria-live="polite" data-spot-card hidden>
+          <p class="spot-card__title" data-spot-title></p>
+          <p class="spot-card__text" data-spot-text></p>
+        </div>
+      </div>
+
       <div class="container hero__content">
         <h1 class="hero__title">
           <span class="line"><span>Haare mit</span></span>
@@ -85,8 +120,9 @@
         <p class="hero__lead">Ihr Friseur in Stuttgart-Weilimdorf. Schnitt, Farbe, Styling und Bartpflege – für Damen, Herren und Kinder.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="tel:+4971191248868">Termin vereinbaren: 0711&nbsp;91248868</a>
-          <a class="btn btn--light" href="#galerie">Salon ansehen</a>
+          <a class="btn btn--light" href="#finder">Welche Frisur passt zu mir?</a>
         </div>
+        <p class="hero__hint" data-spots-hint hidden><span class="hero__hint-dot" aria-hidden="true"></span>Tipp: Klicken Sie auf die leuchtenden Punkte im Bild.</p>
       </div>
     </section>
 
@@ -154,6 +190,24 @@
       </div>
     </section>
 
+    <!-- ================= FRISUREN-FINDER (kleines Quiz) =================
+         Fragen und Antworten stehen in js/main.js unter „FRISUREN-FINDER“. -->
+    <section class="section finder" id="finder" data-finder hidden>
+      <div class="container finder__grid">
+        <div class="finder__intro">
+          <h2>Welche Frisur passt zu Ihnen?</h2>
+          <p>Drei kurze Fragen – und Sie wissen, wonach Sie beim Termin fragen können.</p>
+        </div>
+        <div class="finder__card">
+          <div class="finder__top">
+            <p class="finder__step" data-finder-step aria-live="polite"></p>
+            <div class="finder__bars" data-finder-bars aria-hidden="true"></div>
+          </div>
+          <div class="finder__body" data-finder-body></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= GALERIE =================
          Die Fotos lassen sich anklicken und groß ansehen. -->
     <section class="section gallery" id="galerie">
@@ -214,13 +268,14 @@
             </dd>
           </div>
           <div>
-            <!-- ÖFFNUNGSZEITEN: hier ändern -->
+            <!-- ÖFFNUNGSZEITEN: hier ändern – und auch in js/main.js
+                 unter „ÖFFNUNGSZEITEN“ (für die Anzeige „Jetzt geöffnet“). -->
             <dt>Öffnungszeiten</dt>
             <dd>
               <table class="hours">
-                <tr><th scope="row">Montag – Freitag</th><td>9:00 – 18:00 Uhr</td></tr>
-                <tr><th scope="row">Samstag</th><td>8:00 – 16:00 Uhr</td></tr>
-                <tr><th scope="row">Sonntag</th><td>geschlossen</td></tr>
+                <tr data-days="1 2 3 4 5"><th scope="row">Montag – Freitag</th><td>9:00 – 18:00 Uhr</td></tr>
+                <tr data-days="6"><th scope="row">Samstag</th><td>8:00 – 16:00 Uhr</td></tr>
+                <tr data-days="0"><th scope="row">Sonntag</th><td>geschlossen</td></tr>
               </table>
             </dd>
           </div>

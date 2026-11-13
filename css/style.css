@@ -115,7 +115,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .btn svg { width: 18px; height: 18px; fill: currentColor; }
 .btn--primary { background: var(--gold); color: var(--ink); }
 .btn--light { border-color: rgba(255, 253, 249, 0.55); color: var(--white); }
-.btn--ghost { border-color: var(--line); color: var(--ink); }
+.btn--ghost { border-color: var(--line); color: var(--ink); background: transparent; cursor: pointer; }
 .btn--small { min-height: 42px; padding: 0 18px; font-size: 0.88rem; }
 @media (hover: hover) and (pointer: fine) {
   .btn--primary:hover { background: var(--gold-light); }
@@ -131,7 +131,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .logo__mark span:last-child { margin-left: -0.28em; font-style: italic; color: var(--cognac); }
 .logo__text {
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .logo { gap: 8px; }
+  .logo__text { font-size: 0.64rem; letter-spacing: 0.2em; }
+  .status { padding: 5px 10px; font-size: 0.78rem; }
 }
 
 /* ---------- Kopfzeile ---------- */
@@ -472,3 +477,153 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .legal p, .legal li { color: var(--ink-soft); }
 .legal a { color: var(--cognac); }
 .todo { background: #fff1c2; color: #6b4e00; padding: 0 4px; border-radius: 3px; }
+
+/* =========================================================
+   LIVE-ANZEIGE „Jetzt geöffnet“ (oben in der Kopfzeile)
+   ========================================================= */
+.status {
+  display: inline-flex; align-items: center; gap: 8px; margin-left: 20px;
+  padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+  font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.status[hidden] { display: none; }
+@media (hover: hover) and (pointer: fine) { .status:hover { border-color: var(--ink-soft); color: var(--ink); } }
+.status__dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--cognac); flex: none; }
+.status.is-open .status__dot { background: #3f8f5a; }
+.status.is-open .status__dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: #3f8f5a;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .status.is-open .status__dot::after { animation: ping 2.4s var(--ease-out) infinite; }
+}
+.status__short { display: none; }
+@media (max-width: 1100px) and (min-width: 861px) { .status__long { display: none; } .status__short { display: inline; } }
+@media (max-width: 860px) {
+  .status { margin-left: auto; }
+  .status + .nav + .header__call + .menu-btn, .menu-btn { margin-left: 4px; }
+  .status__long { display: none; } .status__short { display: inline; }
+}
+@keyframes ping { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(3); opacity: 0; } }
+
+.hours tr.is-today th, .hours tr.is-today td { color: var(--gold-light) !important; font-weight: 500; }
+.hours tr.is-today th::after { content: " · heute"; font-weight: 400; color: rgba(255, 253, 249, 0.6); }
+
+/* =========================================================
+   RUNDGANG – leuchtende Punkte im Startbild
+   (die Ringe erinnern an die Ring-Leuchten im Salon)
+   ========================================================= */
+.hero__content { position: relative; z-index: 2; pointer-events: none; }
+.hero__content > * { pointer-events: auto; }
+.spots { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.spot {
+  position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto;
+  display: grid; place-items: center; opacity: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.spot[hidden] { display: none; }
+.spots.is-ready .spot { opacity: 1; }
+.spot::before, .spot::after {
+  content: ""; grid-area: 1 / 1; width: 16px; height: 16px; border-radius: 50%;
+}
+.spot::before {
+  background: var(--gold-light); border: 2px solid var(--white);
+  box-shadow: 0 4px 14px rgba(12, 14, 30, 0.45);
+  transition: transform 300ms var(--ease-out), background-color 200ms ease;
+}
+.spot::after { border: 1.5px solid var(--gold-light); opacity: 0.6; }
+.spot:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 0; border-radius: 50%; }
+.spot.is-active::before { background: var(--white); transform: scale(1.25); }
+@media (hover: hover) and (pointer: fine) { .spot:hover::before { transform: scale(1.25); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spots.is-ready .spot { animation: spot-in 700ms var(--ease-out) both; animation-delay: 1700ms; }
+  .spots.is-ready .spot:nth-child(2) { animation-delay: 1820ms; }
+  .spots.is-ready .spot:nth-child(3) { animation-delay: 1940ms; }
+  .spots.is-ready .spot:nth-child(4) { animation-delay: 2060ms; }
+  .spots.is-ready .spot:nth-child(5) { animation-delay: 2180ms; }
+  .spots.is-ready .spot:nth-child(6) { animation-delay: 2300ms; }
+  .spot::after { animation: ring 2.8s var(--ease-out) infinite; }
+  .spot:nth-child(2)::after { animation-delay: 0.5s; }
+  .spot:nth-child(3)::after { animation-delay: 1s; }
+  .spot:nth-child(4)::after { animation-delay: 1.5s; }
+  .spot:nth-child(5)::after { animation-delay: 2s; }
+  .spot:nth-child(6)::after { animation-delay: 2.5s; }
+  .spots.is-paused .spot::after { animation-play-state: paused; }
+  .spot.is-active::after { animation: none; opacity: 0; }
+}
+@keyframes spot-in { from { opacity: 0; transform: scale(0.3); } }
+@keyframes ring { 0% { transform: scale(1); opacity: 0.85; } 75%, 100% { transform: scale(3.2); opacity: 0; } }
+
+.spot-card {
+  position: absolute; z-index: 3; pointer-events: auto;
+  background: var(--cream); color: var(--ink);
+  border-radius: 12px; padding: 16px 18px 18px;
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.55);
+}
+.spot-card[hidden] { display: none; }
+.spot-card__title { margin: 0 0 4px; font-family: var(--serif); font-size: 1.4rem; line-height: 1.15; }
+.spot-card__text { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+
+.hero__hint {
+  display: flex; width: fit-content; align-items: center; gap: 10px; margin: 20px 0 0;
+  font-size: 0.88rem; color: rgba(255, 253, 249, 0.78);
+  transition: opacity 400ms ease;
+}
+.hero__hint[hidden] { display: none; }
+.hero__hint.is-done { opacity: 0; }
+.hero__hint-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex: none;
+  background: var(--gold-light); box-shadow: 0 0 0 4px rgba(217, 191, 140, 0.25);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__hint { animation: soft-in 900ms var(--ease-out) both; animation-delay: 2300ms; }
+}
+
+/* =========================================================
+   FRISUREN-FINDER (Quiz)
+   ========================================================= */
+.finder { background: var(--white); }
+.finder[hidden] { display: none; }
+.finder__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.finder__intro p { color: var(--ink-soft); max-width: 26rem; }
+.finder__card {
+  background: var(--cream); border-radius: 14px;
+  padding: clamp(28px, 4vw, 48px); min-height: 460px;
+  display: flex; flex-direction: column;
+}
+.finder__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.finder__step { margin: 0; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cognac); font-variant-numeric: lining-nums; }
+.finder__bars { display: flex; gap: 6px; }
+.finder__bars span { width: 36px; height: 3px; border-radius: 2px; background: var(--line); transition: background-color 400ms ease; }
+.finder__bars span.is-on { background: var(--cognac); }
+.finder__body { flex: 1; }
+.finder__q { font-size: clamp(1.9rem, 3vw, 2.4rem); margin-bottom: 1em; }
+.finder__options { display: grid; gap: 10px; }
+.finder__opt {
+  display: block; width: 100%; text-align: left;
+  padding: 17px 20px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--white); color: var(--ink); font: inherit; font-size: 1rem; cursor: pointer;
+  transition: border-color 200ms ease, background-color 200ms ease, transform 160ms var(--ease-out);
+}
+.finder__opt:active { transform: scale(0.98); }
+@media (hover: hover) and (pointer: fine) {
+  .finder__opt:hover { border-color: var(--cognac); background: #fdf6ee; }
+}
+.finder__back {
+  margin-top: 18px; padding: 8px 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.92rem; color: var(--ink-soft); text-decoration: underline; text-underline-offset: 4px;
+}
+.finder__label { margin: 0 0 6px; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cognac); }
+.finder__result { font-size: clamp(2.4rem, 4.4vw, 3.4rem); margin: 0; }
+.finder__rule { display: block; width: 72px; height: 2px; background: var(--gold); transform-origin: left; margin: 18px 0 20px; }
+.finder__text { color: var(--ink-soft); max-width: 32rem; }
+.finder__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.finder__note { margin: 18px 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .finder__grid { grid-template-columns: 1fr; }
+  .finder__card { min-height: 0; }
+  .finder__actions .btn { flex: 1 1 100%; }
+}
