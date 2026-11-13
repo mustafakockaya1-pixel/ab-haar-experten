@@ -24,6 +24,7 @@
     "slogan": "Leidenschaft & Liebe",
     "founder": "Adnan Bajrami",
     "telephone": "+49 711 91248868",
+    "openingHours": ["Mo-Fr 09:00-18:00", "Sa 08:00-16:00"],
     "image": "img/salon-innen-1206.webp",
     "address": {
       "@type": "PostalAddress",
@@ -48,7 +49,7 @@
 
       <nav class="nav" id="nav" aria-label="Hauptmenü">
         <a href="#salon">Salon</a>
-        <a href="#leistungen">Leistungen &amp; Preise</a>
+        <a href="#leistungen">Leistungen</a>
         <a href="#galerie">Galerie</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -104,46 +105,45 @@
       </div>
     </section>
 
-    <!-- ================= LEISTUNGEN & PREISE =================
-         So ändern Sie einen Preis:
-         Suchen Sie die Zeile mit der Leistung und ändern Sie den Text
-         zwischen <span class="price__value"> und </span>, z. B. "ab 25 €".
-    -->
+    <!-- ================= LEISTUNGEN =================
+         Eine Leistung ändern oder hinzufügen: eine Zeile
+         <li class="price"><span class="price__name">...</span></li>
+         kopieren und den Text dazwischen anpassen. -->
     <section class="section services" id="leistungen">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Leistungen &amp; Preise</p>
+          <p class="eyebrow">Leistungen</p>
           <h2>Was wir für Sie tun</h2>
-          <p class="section__lead">Den genauen Preis besprechen wir gern vorab mit Ihnen – er hängt oft von Haarlänge und Aufwand ab. Rufen Sie einfach an oder fragen Sie im Salon.</p>
+          <p class="section__lead">Sie wissen noch nicht genau, was Sie möchten? Wir beraten Sie gern – rufen Sie einfach an oder kommen Sie vorbei.</p>
         </div>
 
         <div class="price-grid">
           <article class="price-card">
             <h3>Damen</h3>
             <ul class="price-list">
-              <li class="price"><span class="price__name">Waschen, Schneiden, Föhnen</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Föhnen &amp; Styling</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Färben</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Strähnen</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Hochsteckfrisur</span><span class="price__value">auf Anfrage</span></li>
+              <li class="price"><span class="price__name">Waschen, Schneiden, Föhnen</span></li>
+              <li class="price"><span class="price__name">Föhnen &amp; Styling</span></li>
+              <li class="price"><span class="price__name">Färben</span></li>
+              <li class="price"><span class="price__name">Strähnen</span></li>
+              <li class="price"><span class="price__name">Hochsteckfrisur</span></li>
             </ul>
           </article>
 
           <article class="price-card price-card--accent">
             <h3>Herren</h3>
             <ul class="price-list">
-              <li class="price"><span class="price__name">Haarschnitt</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Maschinenschnitt</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Bart trimmen &amp; Konturen</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Nassrasur</span><span class="price__value">auf Anfrage</span></li>
-              <li class="price"><span class="price__name">Haarschnitt + Bart</span><span class="price__value">auf Anfrage</span></li>
+              <li class="price"><span class="price__name">Haarschnitt</span></li>
+              <li class="price"><span class="price__name">Maschinenschnitt</span></li>
+              <li class="price"><span class="price__name">Bart trimmen &amp; Konturen</span></li>
+              <li class="price"><span class="price__name">Nassrasur</span></li>
+              <li class="price"><span class="price__name">Haarschnitt + Bart</span></li>
             </ul>
           </article>
 
           <article class="price-card">
             <h3>Kinder</h3>
             <ul class="price-list">
-              <li class="price"><span class="price__name">Kinderhaarschnitt</span><span class="price__value">auf Anfrage</span></li>
+              <li class="price"><span class="price__name">Kinderhaarschnitt</span></li>
             </ul>
             <p class="price-card__note">Für unsere kleinen Gäste nehmen wir uns besonders viel Geduld.</p>
           </article>
@@ -202,12 +202,15 @@
             </dd>
           </div>
           <div>
-            <!-- ÖFFNUNGSZEITEN: Sobald Sie die Zeiten haben, hier eintragen,
-                 z. B.  Mo–Fr 9:00–18:00 <br> Sa 9:00–14:00 -->
+            <!-- ÖFFNUNGSZEITEN: hier ändern -->
             <dt>Öffnungszeiten</dt>
-            <dd>Die aktuellen Zeiten finden Sie bei
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=AB+Haar+Experten+Staigerstra%C3%9Fe+21+70499+Stuttgart" target="_blank" rel="noopener">Google&nbsp;Maps</a> –
-              oder rufen Sie einfach kurz an.</dd>
+            <dd>
+              <table class="hours">
+                <tr><th scope="row">Montag – Freitag</th><td>9:00 – 18:00 Uhr</td></tr>
+                <tr><th scope="row">Samstag</th><td>8:00 – 16:00 Uhr</td></tr>
+                <tr><th scope="row">Sonntag</th><td>geschlossen</td></tr>
+              </table>
+            </dd>
           </div>
         </dl>
       </div>

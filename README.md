@@ -7,7 +7,7 @@ in der Staigerstraße 21, 70499 Stuttgart-Weilimdorf.
 
 | Datei / Ordner     | Was steckt drin?                                      |
 |--------------------|-------------------------------------------------------|
-| `index.html`       | Die Startseite mit allen Texten, Preisen und Kontakt  |
+| `index.html`       | Die Startseite mit Texten, Leistungen, Öffnungszeiten und Kontakt |
 | `impressum.html`   | Impressum (gesetzlich Pflicht)                        |
 | `datenschutz.html` | Datenschutzerklärung (gesetzlich Pflicht)             |
 | `css/style.css`    | Aussehen: Farben, Schriften, Abstände                 |
@@ -17,12 +17,9 @@ in der Staigerstraße 21, 70499 Stuttgart-Weilimdorf.
 
 ## Noch zu erledigen, bevor die Seite online geht
 
-1. **Preise eintragen** – in `index.html` nach `auf Anfrage` suchen und durch
-   den Preis ersetzen, z. B. `ab 25 €`.
-2. **Leistungen prüfen** – stimmen die Leistungen (Damen, Herren, Kinder)?
-   Fehlt etwas oder ist etwas zu viel?
-3. **Öffnungszeiten eintragen** – in `index.html` nach `ÖFFNUNGSZEITEN` suchen.
-4. **Impressum und Datenschutz** – alle gelb markierten Stellen ausfüllen
+1. **Leistungen prüfen** – stimmen die Leistungen (Damen, Herren, Kinder)?
+   Fehlt etwas oder ist etwas zu viel? (Preise stehen bewusst nicht auf der Seite.)
+2. **Impressum und Datenschutz** – alle gelb markierten Stellen ausfüllen
    (E-Mail, Steuernummer, Handwerkskammer). Am besten einmal von einer
    Fachperson prüfen lassen.
 
