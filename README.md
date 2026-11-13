@@ -33,3 +33,10 @@ Einfach `index.html` doppelt anklicken – sie öffnet sich im Browser.
   einfache Dateien. Jeder normale Webspeicher kann sie anzeigen.
 - **Keine Cookies, kein Tracking, keine Google-Schriften** – deshalb ist auch
   kein Cookie-Banner nötig.
+
+## Nach einer Änderung an Aussehen oder Effekten
+
+In `index.html`, `impressum.html` und `datenschutz.html` steht hinter
+`style.css` und `main.js` ein `?v=…` mit einer Nummer. Diese Nummer bei
+jeder Änderung erhöhen – dann laden alle Besucher sofort die neue Version
+statt einer alten, im Browser gespeicherten.
