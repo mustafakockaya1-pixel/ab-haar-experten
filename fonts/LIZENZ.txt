@@ -1,0 +1,5 @@
+Schriften: Cormorant Garamond und Jost
+Beide stehen unter der SIL Open Font License 1.1 und dürfen frei
+(auch geschäftlich) genutzt werden: https://openfontlicense.org
+Die Dateien stammen aus den Fontsource-Paketen und liegen bewusst auf
+dem eigenen Server statt bei Google (Datenschutz).
