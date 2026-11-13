@@ -78,12 +78,14 @@
         </picture>
       </div>
       <div class="container hero__content">
-        <p class="eyebrow">Friseur in Stuttgart-Weilimdorf</p>
-        <h1 class="hero__title">Haare mit <em>Leidenschaft&nbsp;&amp;&nbsp;Liebe</em></h1>
-        <p class="hero__lead">Schnitt, Farbe, Styling und Bartpflege – für Damen, Herren und Kinder. Mitten in Weilimdorf, in der Staigerstraße&nbsp;21.</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Haare mit</span></span>
+          <span class="line"><em>Leidenschaft&nbsp;&amp;&nbsp;Liebe</em></span>
+        </h1>
+        <p class="hero__lead">Ihr Friseur in Stuttgart-Weilimdorf. Schnitt, Farbe, Styling und Bartpflege – für Damen, Herren und Kinder.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="tel:+4971191248868">Termin vereinbaren: 0711&nbsp;91248868</a>
-          <a class="btn btn--light" href="#leistungen">Leistungen ansehen</a>
+          <a class="btn btn--light" href="#galerie">Salon ansehen</a>
         </div>
       </div>
     </section>
@@ -92,97 +94,106 @@
     <section class="section about" id="salon">
       <div class="container about__grid">
         <div class="about__text">
-          <p class="eyebrow">Willkommen</p>
-          <h2>Ein Salon zum Wohlfühlen</h2>
+          <h2>Ein Salon zum <em>Wohlfühlen</em></h2>
           <p>Bei AB Haar Experten nehmen wir uns Zeit für Sie. Ob ein frischer Schnitt, eine neue Farbe oder ein gepflegter Bart: Wir hören zu, beraten ehrlich und arbeiten mit Sorgfalt – damit Sie sich nicht nur beim Rausgehen, sondern auch noch Wochen später wohlfühlen.</p>
           <p>Machen Sie es sich auf dem Sofa bequem, genießen Sie einen Kaffee und lassen Sie den Alltag kurz draußen.</p>
           <p class="signature">Adnan Bajrami<span>Inhaber</span></p>
         </div>
         <figure class="about__image">
-          <picture>
-            <source type="image/webp" srcset="img/salon-empfang-800.webp 800w, img/salon-empfang-1206.webp 1206w" sizes="(min-width: 900px) 40vw, 100vw">
-            <img src="img/salon-empfang-800.webp" alt="Empfangstresen mit drei Hängeleuchten, goldenen Teddy-Figuren, Blumenstrauß und grüner Pflanzenwand" width="800" height="1244" loading="lazy">
-          </picture>
+          <button class="zoom" type="button" data-zoom="3" aria-label="Foto vergrößern: Außenansicht des Salons">
+            <picture>
+              <source type="image/webp" srcset="img/salon-fassade-800.webp 800w, img/salon-fassade-1132.webp 1132w" sizes="(min-width: 900px) 40vw, 100vw">
+              <img src="img/salon-fassade-800.webp" alt="Außenansicht des Salons: zwei Schaufenster mit dem Schriftzug AB Haar Experten – Leidenschaft & Liebe" width="800" height="1060" loading="lazy">
+            </picture>
+            <span class="zoom__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+          </button>
+          <figcaption>Staigerstraße 21 – hier finden Sie uns.</figcaption>
         </figure>
       </div>
     </section>
 
     <!-- ================= LEISTUNGEN =================
          Eine Leistung ändern oder hinzufügen: eine Zeile
-         <li class="price"><span class="price__name">...</span></li>
-         kopieren und den Text dazwischen anpassen. -->
+         <li>...</li> kopieren und den Text dazwischen anpassen. -->
     <section class="section services" id="leistungen">
       <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Leistungen</p>
+        <div class="services__head">
           <h2>Was wir für Sie tun</h2>
-          <p class="section__lead">Sie wissen noch nicht genau, was Sie möchten? Wir beraten Sie gern – rufen Sie einfach an oder kommen Sie vorbei.</p>
+          <p>Sie wissen noch nicht genau, was Sie möchten? Wir beraten Sie gern – rufen Sie einfach an oder kommen Sie vorbei.</p>
         </div>
 
-        <div class="price-grid">
-          <article class="price-card">
+        <div class="menu">
+          <div class="menu__col">
             <h3>Damen</h3>
-            <ul class="price-list">
-              <li class="price"><span class="price__name">Waschen, Schneiden, Föhnen</span></li>
-              <li class="price"><span class="price__name">Föhnen &amp; Styling</span></li>
-              <li class="price"><span class="price__name">Färben</span></li>
-              <li class="price"><span class="price__name">Strähnen</span></li>
-              <li class="price"><span class="price__name">Hochsteckfrisur</span></li>
+            <ul>
+              <li>Waschen, Schneiden, Föhnen</li>
+              <li>Föhnen &amp; Styling</li>
+              <li>Färben</li>
+              <li>Strähnen</li>
+              <li>Hochsteckfrisur</li>
             </ul>
-          </article>
-
-          <article class="price-card price-card--accent">
+          </div>
+          <div class="menu__col">
             <h3>Herren</h3>
-            <ul class="price-list">
-              <li class="price"><span class="price__name">Haarschnitt</span></li>
-              <li class="price"><span class="price__name">Maschinenschnitt</span></li>
-              <li class="price"><span class="price__name">Bart trimmen &amp; Konturen</span></li>
-              <li class="price"><span class="price__name">Nassrasur</span></li>
-              <li class="price"><span class="price__name">Haarschnitt + Bart</span></li>
+            <ul>
+              <li>Haarschnitt</li>
+              <li>Maschinenschnitt</li>
+              <li>Bart trimmen &amp; Konturen</li>
+              <li>Nassrasur</li>
+              <li>Haarschnitt + Bart</li>
             </ul>
-          </article>
-
-          <article class="price-card">
+          </div>
+          <div class="menu__col">
             <h3>Kinder</h3>
-            <ul class="price-list">
-              <li class="price"><span class="price__name">Kinderhaarschnitt</span></li>
+            <ul>
+              <li>Kinderhaarschnitt</li>
             </ul>
-            <p class="price-card__note">Für unsere kleinen Gäste nehmen wir uns besonders viel Geduld.</p>
-          </article>
+            <p class="menu__note">Für unsere kleinen Gäste nehmen wir uns besonders viel Geduld.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= GALERIE ================= -->
+    <!-- ================= GALERIE =================
+         Die Fotos lassen sich anklicken und groß ansehen. -->
     <section class="section gallery" id="galerie">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Einblicke</p>
-          <h2>Unser Salon</h2>
-        </div>
-        <div class="gallery__grid">
-          <figure class="gallery__item gallery__item--tall">
-            <picture>
-              <source type="image/webp" srcset="img/salon-plaetze-800.webp 800w, img/salon-plaetze-1206.webp 1206w" sizes="(min-width: 900px) 33vw, 100vw">
-              <img src="img/salon-plaetze-800.webp" alt="Zwei Friseurstühle mit Holzschale und goldenem Fuß vor beleuchteten Spiegeln an einer cognacbraunen Wand" width="800" height="1232" loading="lazy">
-            </picture>
-            <figcaption>Ihr Platz – mit Licht, das ehrlich zeigt, wie es aussieht.</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--wide">
-            <picture>
-              <source type="image/webp" srcset="img/salon-innen-800.webp 800w, img/salon-innen-1206.webp 1206w" sizes="(min-width: 900px) 66vw, 100vw">
-              <img src="img/salon-innen-800.webp" alt="Herrenbereich mit schwarzen Barber-Stühlen, großen Spiegeln und blauer Wand" width="800" height="599" loading="lazy">
-            </picture>
-            <figcaption>Barber-Bereich für Schnitt und Bart.</figcaption>
-          </figure>
-          <figure class="gallery__item gallery__item--wide gallery__item--facade">
-            <picture>
-              <source type="image/webp" srcset="img/salon-fassade-800.webp 800w, img/salon-fassade-1132.webp 1132w" sizes="(min-width: 900px) 33vw, 100vw">
-              <img src="img/salon-fassade-800.webp" alt="Außenansicht des Salons: zwei Schaufenster mit dem Schriftzug AB Haar Experten – Leidenschaft & Liebe" width="800" height="1060" loading="lazy">
-            </picture>
-            <figcaption>So finden Sie uns: Staigerstraße 21.</figcaption>
-          </figure>
-        </div>
+      <div class="container gallery__head">
+        <h2>Unser Salon</h2>
+        <p class="gallery__hint">Fotos zum Vergrößern anklicken</p>
+      </div>
+      <div class="container strip-wrap">
+        <ul class="strip">
+          <li class="strip__item">
+            <button class="zoom" type="button" data-zoom="0" aria-label="Foto vergrößern: Damenplätze mit beleuchteten Spiegeln">
+              <picture>
+                <source type="image/webp" srcset="img/salon-plaetze-800.webp 800w, img/salon-plaetze-1206.webp 1206w" sizes="(min-width: 900px) 40vw, 80vw">
+                <img src="img/salon-plaetze-800.webp" alt="Zwei Friseurstühle mit Holzschale und goldenem Fuß vor beleuchteten Spiegeln an einer cognacbraunen Wand" width="800" height="1232" loading="lazy">
+              </picture>
+              <span class="strip__caption">Ihr Platz – mit Licht, das ehrlich zeigt, wie es aussieht.</span>
+              <span class="zoom__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item">
+            <button class="zoom" type="button" data-zoom="1" aria-label="Foto vergrößern: Barber-Bereich">
+              <picture>
+                <source type="image/webp" srcset="img/salon-innen-800.webp 800w, img/salon-innen-1206.webp 1206w" sizes="(min-width: 900px) 50vw, 80vw">
+                <img src="img/salon-innen-800.webp" alt="Herrenbereich mit schwarzen Barber-Stühlen, großen Spiegeln, blauer Wand und Ledersofa" width="800" height="599" loading="lazy">
+              </picture>
+              <span class="strip__caption">Barber-Bereich für Schnitt und Bart.</span>
+              <span class="zoom__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+            </button>
+          </li>
+          <li class="strip__item">
+            <button class="zoom" type="button" data-zoom="2" aria-label="Foto vergrößern: Empfang">
+              <picture>
+                <source type="image/webp" srcset="img/salon-empfang-800.webp 800w, img/salon-empfang-1206.webp 1206w" sizes="(min-width: 900px) 40vw, 80vw">
+                <img src="img/salon-empfang-800.webp" alt="Empfangstresen mit drei Hängeleuchten, goldenen Teddy-Figuren, Blumenstrauß und grüner Pflanzenwand" width="800" height="1244" loading="lazy">
+              </picture>
+              <span class="strip__caption">Der Empfang – hier beginnt Ihr Termin.</span>
+              <span class="zoom__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></span>
+            </button>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -190,7 +201,6 @@
     <section class="section contact" id="kontakt">
       <div class="container contact__grid">
         <div>
-          <p class="eyebrow eyebrow--light">Kontakt &amp; Anfahrt</p>
           <h2>Wir freuen uns auf Sie</h2>
           <p class="contact__lead">Am schnellsten bekommen Sie einen Termin per Telefon.</p>
           <a class="contact__phone" href="tel:+4971191248868">0711 91248868</a>
@@ -231,12 +241,41 @@
     </div>
   </footer>
 
-  <!-- Anruf-Knopf, der auf dem Handy unten immer sichtbar ist -->
+  <!-- Anruf-Knopf, der auf dem Handy unten erscheint -->
   <a class="call-bar" data-call-bar href="tel:+4971191248868">
     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
     Jetzt Termin vereinbaren
   </a>
 
+  <!-- ================= GROSSANSICHT DER FOTOS =================
+       Reihenfolge = Nummer in data-zoom oben (0, 1, 2, 3). -->
+  <dialog class="lightbox" aria-label="Foto-Großansicht" data-lightbox>
+    <div class="lightbox__bg" data-lb-bg></div>
+    <img class="lightbox__img" src="img/salon-plaetze-800.webp" alt="" data-lb-img>
+    <div class="lightbox__bar" data-lb-bar>
+      <p class="lightbox__caption" data-lb-caption></p>
+      <p class="lightbox__count"><span data-lb-index>1</span> / <span data-lb-total>4</span></p>
+    </div>
+    <button class="lb-btn lb-btn--close" type="button" data-lb-close aria-label="Großansicht schließen">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <button class="lb-btn lb-btn--prev" type="button" data-lb-prev aria-label="Vorheriges Foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="lb-btn lb-btn--next" type="button" data-lb-next aria-label="Nächstes Foto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </dialog>
+
+  <script>
+    // Die Fotos für die Großansicht (in bester Qualität)
+    window.GALERIE = [
+      { src: "img/salon-plaetze-1206.webp", w: 1206, h: 1857, text: "Ihr Platz – mit Licht, das ehrlich zeigt, wie es aussieht.", alt: "Zwei Friseurstühle vor beleuchteten Spiegeln an einer cognacbraunen Wand" },
+      { src: "img/salon-innen-1206.webp",   w: 1206, h: 903,  text: "Barber-Bereich für Schnitt und Bart.", alt: "Herrenbereich mit Barber-Stühlen, großen Spiegeln und blauer Wand" },
+      { src: "img/salon-empfang-1206.webp", w: 1206, h: 1876, text: "Der Empfang – hier beginnt Ihr Termin.", alt: "Empfangstresen mit Hängeleuchten, Blumen und Pflanzenwand" },
+      { src: "img/salon-fassade-1132.webp", w: 1132, h: 1500, text: "Staigerstraße 21 – hier finden Sie uns.", alt: "Außenansicht des Salons mit zwei Schaufenstern" }
+    ];
+  </script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
